@@ -1,6 +1,158 @@
 <mvc:View controllerName="ngonzano.reto.controller.ViewReto"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    xmlns="sap.m"
+    xmlns:layout="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Page id="mainPage" title="{i18n>title}" class="sapUiContentPadding">
+
+        <Panel id="usersInfoPanel" class="sapUiRoundedCorners sapUiSmallMargin sapUiShadow sapUiContentPadding">
+
+            <HBox id="mainHBox" class="sapUiSmallMargin" justifyContent="SpaceBetween">
+                <VBox id="mainVBox" width="50%" class="sapUiSmallMargin">
+                    <!-- Personal Information -->
+                    <Title id="titlePersonal" text="{i18n>personalInfo}" level="H4" />
+                    <form:SimpleForm id="formPersonal" layout="ResponsiveGridLayout" editable="true">
+                        <Label id="labelId" text="{i18n>labelId}" required="true" />
+                        <Input id="inputId" />
+
+                        <Label id="labelTypeDoc" text="{i18n>labelTypeDoc}" required="true" />
+
+                        <Select id="selectTypeDoc" change=".onSelectChange" items="{selects>/TypeDocuments}">
+                            <core:Item id="idSelectDocument" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+
+                        <Label id="labelNumDoc" text="{i18n>labelNumDoc}" required="true" />
+                        <Input id="inputNumDoc" />
+
+                        <Label id="labelFirstName" text="{i18n>labelFirstName}" required="true" />
+                        <Input id="inputFirstName" />
+
+                        <Label id="labelLastName" text="{i18n>labelLastName}" required="true" />
+                        <Input id="inputLastName" />
+
+                        <Label id="labelBirthDate" text="{i18n>labelBirthDate}" required="true" />
+                        <DatePicker id="datePickerBirth" placeholder="e.g. 12/31/25" />
+                    </form:SimpleForm>
+
+                    <!-- Other Information -->
+                    <Title id="titleOther" text="{i18n>otherInfo}" level="H4" />
+                    <form:SimpleForm id="formOther" layout="ResponsiveGridLayout" editable="true">
+                        <Label id="labelPlaceBirth" text="{i18n>labelPlaceBirth}" required="true" />
+                        <Select id="selectPlaceBirth" items="{selects>/PlacesBirth}" change=".onSelectChange">
+                            <core:Item id="idSelectPlaceBirth" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+                        <Label id="labelNationality" text="{i18n>labelNationality}" required="true" />
+
+                        <Select id="selectNationality" items="{selects>/Nationalities}" change=".onSelectChange">
+                            <core:Item id="idSelectNationality" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+
+                        <Label id="labelGenre" text="{i18n>labelGenre}" required="true" />
+                        <Select id="selectGenre" items="{selects>/Genres}" change=".onSelectChange">
+                            <core:Item id="idSelectGenre" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+
+                        <Label id="labelCivilStatus" text="{i18n>labelCivilStatus}" required="true" />
+                        <Select id="selectCivilStatus" items="{selects>/CivilStatus}" change=".onSelectChange">
+                            <core:Item id="idSelectCivilStatus" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+                    </form:SimpleForm>
+                    <!-- Action Buttons -->
+                    <HBox id="buttonBox" justifyContent="Start" class="sapUiSmallMarginTop">
+                        <Button id="btnSave" text="{i18n>btnSave}" type="Accept" press=".onSave"/>
+                        <Button id="btnClear" text="{i18n>btnClear}" type="Reject" class="sapUiTinyMarginBegin" press=".onClear"/>
+                    </HBox>
+
+                </VBox>
+                <VBox id="mainVBox2" width="50%" class="sapUiSmallMargin">
+                    <!-- Address Information -->
+                    <Title id="titleAddress" text="{i18n>addressInfo}" level="H4" />
+                    <form:SimpleForm id="formAddress" layout="ResponsiveGridLayout" editable="true">
+                        <Label id="labelCountry" text="{i18n>labelCountry}" required="true" />
+                        <Select id="selectCountry" change=".onSelectChange" items="{selects>/Countries}">
+                            <core:Item id="idSelectCountry" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+                        <Label id="labelProvince" text="{i18n>labelProvince}" required="true" />
+                        <Select id="selectProvince" change=".onSelectChange" items="{selects>/Provinces}">
+                            <core:Item id="idSelectProvince" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+
+                        <Label id="labelRegion" text="{i18n>labelRegion}" required="true" />
+                        <Select id="selectRegion" change=".onSelectChange" items="{selects>/Regions}">
+                            <core:Item id="idSelectRegion" key="{selects>key}" text="{selects>text}" />
+                        </Select>
+
+                        <Label id="labelAddress" text="{i18n>labelAddress}" required="true" />
+                        <Input id="inputAddress" />
+
+                        <Label id="labelPostalCode" text="{i18n>labelPostalCode}" required="true" />
+                        <Input id="inputPostalCode" />
+                    </form:SimpleForm>
+
+                    <!-- Contact Information -->
+                    <Title id="titleContact" text="{i18n>contactInfo}" level="H4" />
+                    <form:SimpleForm id="formContact" layout="ResponsiveGridLayout" editable="true">
+                        <Label id="labelPhone" text="{i18n>labelPhone}" required="true" />
+                        <Input id="inputPhone" />
+
+                        <Label id="labelEmail" text="{i18n>labelEmail}" required="true" />
+                        <Input id="inputEmail" />
+                    </form:SimpleForm>
+                </VBox>
+            </HBox>
+
+        </Panel>
+
+        <Panel id="usersPanel" class="sapUiRoundedCorners sapUiSmallMargin sapUiShadow sapUiContentPadding" headerText="{users>/headerText}">
+            <HBox id="hBoxtable" class="sapUiSmallMargin" justifyContent="SpaceBetween">
+                <VBox id="table" class="sapUiRoundedCorners sapUiShadow">
+                    <!-- Users Table -->
+                    <ScrollContainer id="mainScroll" height="500px" horizontal="true" vertical="true">
+                        <Table id="tableUsers" inset="false" class="sapUiResponsiveMargin sapUiMediumMarginBottom sapUiSizeCompact" items="{users>/data}">
+                            <columns>
+                                <Column id="c1">
+                                    <Text id="t1" text="{i18n>colDocument}" />
+                                </Column>
+                                <Column id="c2">
+                                    <Text id="t2" text="{i18n>colFullName}" />
+                                </Column>
+                                <Column id="c3">
+                                    <Text id="t3" text="{i18n>colBirthDate}" />
+                                </Column>
+                                <Column id="c4">
+                                    <Text id="t4" text="{i18n>colPlaceBirth}" />
+                                </Column>
+                                <Column id="c5">
+                                    <Text id="t5" text="{i18n>colNationality}" />
+                                </Column>
+                                <Column id="c6">
+                                    <Text id="t6" text="{i18n>colGenre}" />
+                                </Column>
+                                <Column id="c7">
+                                    <Text id="t7" text="{i18n>colCivilStatus}" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem id="columnListUser">
+                                    <cells>
+                                        <Text id="txtDocument" text="{users>document}" />
+                                        <Text id="txtFullName" text="{users>fullName}" />
+                                        <Text id="txtBirthDate" text="{users>birthDate}" />
+                                        <Text id="txtPlaceBirth" text="{users>placeBirth}" />
+                                        <Text id="txtNationality" text="{users>nationality}" />
+                                        <Text id="txtGenre" text="{users>genre}" />
+                                        <Text id="txtCivilStatus" text="{users>civilStatus}" />
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+
+                        </Table>
+                    </ScrollContainer>
+
+                </VBox>
+            </HBox>
+        </Panel>
+
     </Page>
 </mvc:View>

@@ -1,0 +1,114 @@
+{
+    "TypeDocuments": [
+        {
+            "key": "CI",
+            "text": "Cédula de Identidad"
+        },
+        {
+            "key": "PP",
+            "text": "Pasaporte"
+        },
+        {
+            "key": "DL",
+            "text": "Licencia de Conducir"
+        }
+    ],
+    "PlacesBirth": [
+        {
+            "key": "VEN",
+            "text": "Venezuela"
+        },
+        {
+            "key": "COL",
+            "text": "Colombia"
+        },
+        {
+            "key": "ARG",
+            "text": "Argentina"
+        }
+    ],
+    "Nationalities": [
+        {
+            "key": "VEN",
+            "text": "Venezolana"
+        },
+        {
+            "key": "COL",
+            "text": "Colombiana"
+        },
+        {
+            "key": "ARG",
+            "text": "Argentina"
+        }
+    ],
+    "Genres": [
+        {
+            "key": "M",
+            "text": "Masculino"
+        },
+        {
+            "key": "F",
+            "text": "Femenino"
+        },
+        {
+            "key": "O",
+            "text": "Otro"
+        }
+    ],
+    "CivilStatus": [
+        {
+            "key": "S",
+            "text": "Soltero/a"
+        },
+        {
+            "key": "C",
+            "text": "Casado/a"
+        },
+        {
+            "key": "D",
+            "text": "Divorciado/a"
+        },
+        {
+            "key": "W",
+            "text": "Viudo/a"
+        }
+    ],
+    "Countries": [
+        {
+            "key": "VEN",
+            "text": "Venezuela"
+        },
+        {
+            "key": "PER",
+            "text": "Perú"
+        },
+        {
+            "key": "CHL",
+            "text": "Chile"
+        }
+    ],
+    "Provinces": [
+        {
+            "key": "MI",
+            "text": "Miranda"
+        },
+        {
+            "key": "DC",
+            "text": "Distrito Capital"
+        }
+    ],
+    "Regions": [
+        {
+            "key": "EST",
+            "text": "Este"
+        },
+        {
+            "key": "OES",
+            "text": "Oeste"
+        },
+        {
+            "key": "NOR",
+            "text": "Norte"
+        }
+    ]
+}
