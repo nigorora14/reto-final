@@ -1,36 +1,52 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Sun Apr 13 2025 15:48:39 GMT+0000 (Coordinated Universal Time)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.17.1|
-|**Generation Platform**<br>CLI|
-|**Template Used**<br>simple|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A|
-|**Module Name**<br>reto|
-|**Application Title**<br>Proyecto final|
-|**Namespace**<br>ngonzano|
-|**UI5 Theme**<br>sap_horizon|
-|**UI5 Version**<br>1.134.1|
-|**Enable Code Assist Libraries**<br>False|
-|**Enable TypeScript**<br>False|
-|**Add Eslint configuration**<br>False|
+# 📝 Registro de Usuarios con JSONModel en SAPUI5
 
-## reto
+## 📌 Descripción del ejercicio
 
-An SAP Fiori application.
+Se desarrolló una funcionalidad en SAPUI5 para capturar datos desde un archivo .json y reflejarlos en un select, **sin utilizar base de datos ni servicios OData**. La gestión de registros se realizó a través de un modelo de tipo `JSONModel`.
 
-### Starting the generated app
+---
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
+## ✅ ¿Qué se hizo?
 
-```
-    npm start
-```
+### 1. Captura de datos desde el formulario
+- Se obtuvieron los valores de los campos `Input`, `Select` y `DatePicker` mediante `byId().getValue()` o `getSelectedItem().getText()`.
 
-#### Pre-requisites:
+### 2. Uso del modelo JSON (`JSONModel`)
+- Se creó o reutilizó un `JSONModel` llamado `"users"` para almacenar los datos capturados.
+- El modelo se inicializó con una estructura como `{ data: [] }`.
 
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+### 3. Actualización de la tabla en tiempo real
+- Se enlazó (`data binding`) el modelo a una tabla en la vista XML usando `items="{users>/data}"`.
+- Cada nuevo usuario ingresado se insertó en el array del modelo y se reflejó automáticamente en la tabla.
 
+### 4. Campos derivados
+- Se construyeron los campos `fullName` y `document` concatenando valores ingresados (por ejemplo, nombre + apellido).
+
+---
+
+## 🛠️ Tecnologías utilizadas
+
+- **SAPUI5 (MVC)**
+- `JSONModel` (model)
+- JavaScript (controlador)
+- XML (vista)
+
+---
+
+## 🎯 Resultado esperado
+
+- Los datos capturados se visualizan automáticamente en la tabla.
+- No se requiere base de datos ni backend.
+- El manejo de datos es 100% en frontend, usando `JSONModel`.
+
+---
+
+## 📂 Consideraciones adicionales
+
+- Este enfoque es ideal para pruebas, prototipos o ejercicios sin conexión a servicios externos.
+- Puede extenderse para agregar funciones como eliminación de registros, descarga en `.json`, o validación de campos.
+
+---
+## Screenshot
+![Texto alternativo](reto.png)
 
